@@ -10,5 +10,11 @@
         <page name='initpropertywithblk'/>
         <page name='extension'/>
         <page name='selftype'/>
+        <page name='switchenum'/>
+        <page name='trycatch'/>
+        <page name='generictype'/>
+        <page name='operatoroverload'/>
+        <page name='optionalessential'/>
+        <page name='print'/>
     </pages>
 </playground>

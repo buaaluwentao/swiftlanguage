@@ -31,3 +31,42 @@ switch (aView) {
 
 let result = 10 is Int
 print(result)
+
+
+protocol Employee {
+    var annualSalary: Int {get}
+}
+
+extension Employee {
+    var biweeklySalary: Int {
+        return self.annualSalary / 26
+    }
+
+    func logSalary() {
+        print("$\(self.annualSalary) per year or $\(self.biweeklySalary) biweekly")
+    }
+}
+
+class SoftwareEngineer: Employee {
+    var annualSalary: Int
+
+    func logSalary() {
+        print("overridden")
+    }
+    
+    init(annualSalary: Int) {
+        self.annualSalary = annualSalary
+    }
+}
+
+class SeniorSoftwareEngineer: SoftwareEngineer {
+    override func logSalary() {
+        print("SeniorSoftwareEngineer")
+    }
+}
+
+let sarah: Employee = SeniorSoftwareEngineer(annualSalary: 100000)
+sarah.logSalary() // prints: overridden
+(sarah as Employee).logSalary() // prints: $100000 per year or $3846 biweekly
+
+//(sarah as SoftwareEngineer).logSalary()
